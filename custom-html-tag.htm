@@ -1,0 +1,67 @@
+<script>
+  //NOTE: GTM's Custom HTML tag only supports JavaScript up to ES5
+  (function () {
+    ////////////////
+    //START SETTINGS
+    ////////////////
+
+    //NOTE: in checkPushData() below, dataLayer.push() is namespaced to klrnDataLayer.push()
+
+    var formSelector = '#aspnetForm';
+    var validationPage = '/klrn/WebModule/DataValidation.aspx'; //to exclude as referral
+    var event = 'form_interaction';
+    var eventCategory = 'Donation Form Interaction';
+
+    /**
+     * Custom code, specific to forms, to clean input field IDs.
+     * @param {string} input - Input field id.
+     * @return {string} - Returns cleaned input field id
+     */
+    function cleanInputID(input) {
+      input = input.split('AllegMain_').slice(-1)[0]; //remove ctl00_AllegMain_ at start
+      input = input.replace(/_\d+$/, ''); //remove any underscore followed by digit/s at end
+      return input;
+    }
+    ////////////////
+    //END SETTINGS
+    ////////////////
+
+    //console.log('LOADED');
+
+    var form = document.querySelector(formSelector);
+    if (!form) return;
+    if (document.referrer.indexOf(validationPage) !== -1) return;
+
+    var inputs = ['No form inputs'];
+
+    /**
+     * If input is not tracked yet, add to inputs array and push dataLayer to GTM.
+     * @param {string} input - Input field id.
+     */
+    function checkPushData(input) {
+      if (inputs.indexOf(input) === -1) {
+        inputs.push(input);
+        klrnDataLayer.push({
+          event: event,
+          eventCategory: eventCategory,
+          eventLabel: input,
+          eventValue: inputs.length - 1, //don't count first item: 'No form inputs'
+
+          //console.log('\nNUMBER OF INPUTS:', inputs.length - 1);
+          //console.log('LAST INPUT:', input);
+        });
+      }
+    }
+
+    //fires an event and stores id of each input interacted with
+    form.addEventListener('change', function (e) {
+      var input = e.target.id ? e.target.id : '';
+      input = cleanInputID(input);
+      checkPushData(input);
+    });
+
+    form.addEventListener('submit', function () {
+      checkPushData('Submit');
+    });
+  })();
+</script>
