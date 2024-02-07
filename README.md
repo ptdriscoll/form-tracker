@@ -21,15 +21,15 @@ dataLayer.push({
 
 1 - Under Variables, create three User-Defined Variables called eventCategory, eventLabel and eventValue. For each, the Variable Type should be Data Layer Variable, Version 2. Here's what eventCategory looks like:
 
-<img src="images/GTM-Variable.png" width="328" /><br />
+<img src="images/GTM-Variable.png" width="450" /><br />
 
 2 - Under Triggers, create a Custom Event trigger called form_interaction that fires on All Custom Events.
 
-<img src="images/GTM-Trigger-Event.png" width="328" /><br />
+<img src="images/GTM-Trigger-Event.png" width="450" /><br />
 
 3 - Also under Triggers, create a Page View DOM Ready trigger that fires on the relevant Page Path or other filter.
 
-<img src="images/GTM-Trigger-DOM.png" width="328" /><br />
+<img src="images/GTM-Trigger-DOM.png" width="450" /><br />
 
 4 - Under Tags, create a Google Analytics GA4 Event that links GA4 Event Parameters to Data Layer values. For example, the GA4 parameter `event_category` is matched to the value `{{eventCategory}}`. Set Triggering to the trigger created in step 2.
 
@@ -89,7 +89,7 @@ function checkPushData(input) {
 
 1 - Under Admin, Data display, create two custom definitions, named event_category and event_label, and set the scope for both to Event. Also, create a custom metric named event_value, which has to be scoped to Event. Here's what event_category looks like:
 
-<img src="images/GA4-custom-dimension.png" width="467" /><br />
+<img src="images/GA4-custom-dimension.png" width="640" /><br />
 
 2 - Under Explore, create a Free form report and add event_label to ROWS. Also, add Event count and event_value to VALUES. And under FILTERS, add Event name and set the Condition to exactly matches = form_interaction.
 
