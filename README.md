@@ -29,7 +29,7 @@ dataLayer.push({
 
 3 - Also under Triggers, create a Page View DOM Ready trigger that fires on the relevant Page Path or other filter.
 
-<img src="images/GTM-Trigger-DOM.png" width="700" /><br />
+<img src="images/GTM-Trigger-DOM.png" width="328" /><br />
 
 4 - Under Tags, create a Google Analytics GA4 Event that links GA4 Event Parameters to Data Layer values. For example, the GA4 parameter `event_category` is matched to the value `{{eventCategory}}`. Set Triggering to the trigger created in step 2.
 
