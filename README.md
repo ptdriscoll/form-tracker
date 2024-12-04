@@ -95,6 +95,11 @@ function checkPushData(input) {
 
 3 - To sort event_labels in the order they appear on a form, download the exploration report to a spreadsheet and re-order the table rows, and optionally add a column of reader-friendly labels and [chart](images/GA4-chart.jpg) the results. To sort labels in the average order users actually filled them out, add a column that divides event_value by Event count and then sort the table using the new column from smallest to largest.
 
+## KLRN Donation Funnel Reports
+
+- [Donation Funnel 2024](reports/KLRN_Donation_Funnel_2024.pdf)
+- [Donation Funnel Update 2024](reports/KLRN_Funnel_Update_2024.pdf)
+
 ## References
 
 - [Form Abandonment Tracking With Google Tag Manager](https://www.analyticsmania.com/post/form-abandonment-tracking-google-tag-manager/)
