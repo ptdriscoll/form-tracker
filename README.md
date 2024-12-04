@@ -13,7 +13,7 @@ dataLayer.push({
 });
 ```
 
-<img src="images/GA4-chart.jpg" width="516" />
+<img src="images/GA4-chart-2024-09.jpg" width="516" />
 
 ## Setup
 
